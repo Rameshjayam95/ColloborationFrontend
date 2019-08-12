@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
+<script src="RouteConfig.js"></script>
+
+
+<script src="c_userpage/UserController.js"></script>
+<script src="c_chat/ChatController.js"></script>
+ <script src="c_chat/ChatService.js"></script>
+<script src="c_blog/BlogController.js"></script>
+<script src="c_blog/BlogCommentController.js"></script>
+<script src="c_forum/ForumController.js"></script>
+<script src="c_forum/ForumCommentController.js"></script>
+<script src="c_friend/FriendController.js"></script>
+<script src="c_job/JobController.js"></script>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+
+
+<link rel="stylesheet" href="Login.css">
+<link rel="stylesheet" href="Register.css">
+
+
+</head>
+<body style="background-color:white;" ng-app="myApp">
+
+<nav class="navbar navbar-light" style="background-color: #dff9fb;">
+<div class="container">
+<a class="navbar-brand" href="#">Collaboration Project</a>
+<ul class="nav navbar-nav">
+<li class="active"><a href="#/showBlog">Home</a></li>
+<li><a  href="#/login">Login</a></li>
+<li><a  href="#/register">Register</a></li>
+<li><a  href="#/contactus">Contact Us</a></li>
+<li><a  href="#/aboutus">About Us</a></li>
+<li><a  href="#/profile" ng-hide="currentUser==undefined">Profile</a></li>
+<li><a  href="#/chat" ng-hide="currentUser==undefined">Chat</a></li>
+
+</ul>
+</div>
+
+
+
+<div class="dropdown">
+    <button type="button" data-toggle="dropdown">Blog<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a  href="#/addBlog" ng-show="currentUser.role=='ROLE_USER'">Add Blog</a></li>
+    <li><a  href="#/myBlog" ng-show="currentUser.role=='ROLE_USER'">My Blog</a></li>
+    <li><a  href="#/manageBlog" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Blog</a></li>
+    <li><a  href="#/showBlog">Show Blog</a></li>
+    </ul>
+    </div><br>
+    
+    
+    <div class="dropdown">
+    <button type="button" data-toggle="dropdown">Forum<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a  href="#/addForum" ng-show="currentUser.role=='ROLE_USER'">Add Forum</a></li>
+    <li><a  href="#/myForum" ng-show="currentUser.role=='ROLE_USER'">My Forum</a></li>
+    <li><a  href="#/manageForum" ng-show="currentUser.role=='ROLE_ADMIN'">Manage Forum</a></li>
+    <li><a  href="#/showForum">Show Forum</a></li>
+    </ul>
+    </div><br>
+    
+    
+    
+    <div class="dropdown">
+    <button type="button" data-toggle="dropdown">Job<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a  href="#/addJob" ng-show="currentUser.role=='ROLE_ADMIN'">Add Job</a></li>
+    <li><a  href="#/showJob">Show Job</a></li>
+    </ul>
+    </div><br>
+    
+    
+    
+    
+    
+    
+    
+    <div class="dropdown" ng-hide="currentUser==undefined">
+    <button type="button" data-toggle="dropdown">Friend<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a  href="#/showFriends" ng-show="currentUser.role=='ROLE_USER'">Show Friends</a></li>
+    <li><a  href="#/friendRequests" ng-show="currentUser.role=='ROLE_USER'">Friend Requests</a></li>
+    <li><a  href="#/suggestedFriends" ng-show="currentUser.role=='ROLE_USER'">Suggested Friends</a></li>
+    
+    </ul>
+    </div>
+    
+    
+    
+ <style>
+.check {
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 80px;
+}
+</style>
+    
+<ul class="nav navbar-nav navbar-right">   
+<div id="mynav" class="check" ng-controller="UserController" ng-hide="currentUser==undefined">
+<img src="http://localhost:8080/ColloborationMiddleEnd/getImage/{{currentUser.username}}" width="40px" height="40px">
+<font color="black" face="calibri" ng-hide="currentUser==undefined">Welcome {{currentUser.firstname}}</font>
+<li><a href="" ng-click="logout()" ng-hide="currentUser==undefined">Logout</a></li>
+</div>
+</ul>
+
+
+</nav>
+
+
+
+
+
+<div ng-view></div>
+
+</body>
+</html>

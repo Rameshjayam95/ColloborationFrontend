@@ -1,0 +1,6 @@
+<div ng-controller="ForumCommentController">
+<div ng-repeat="forumcomment in forumcommentdata">
+<p>{{forumcomment.username}}  <span ng-show="currentUser.username==forumcomment.username"><button ng-click="deleteForumComment(forumcomment.commentId)">Delete</button>  <button ng-click="updateComment(forumcomment.commentId)">Update</button></span></p>
+<p>{{forumcomment.forumComment}}</p>
+</div>
+</div>

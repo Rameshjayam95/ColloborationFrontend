@@ -1,0 +1,14 @@
+<div ng-controller="FriendController">
+<div ng-repeat="friend in showFriends">
+<div ng-show="currentUser.username==friend.username">
+<img src="http://localhost:8080/Middleware/getImage/{{friend.friendusername}}" width="50px" height="50px">
+{{friend.friendFirstName}} {{friend.friendSurName}}
+<button ng-click="deleteFriend(friend.friendId)">Unfriend</button>
+</div>
+<div ng-show="currentUser.username==friend.friendusername">
+<img src="http://localhost:8080/Middleware/getImage/{{friend.username}}" width="50px" height="50px">
+{{friend.userFirstName}} {{friend.userSurName}}
+<button ng-click="deleteFriend(friend.friendId)">Unfriend</button>
+</div>
+</div>
+</div>

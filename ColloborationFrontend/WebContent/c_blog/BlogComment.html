@@ -1,0 +1,6 @@
+<div ng-controller="BlogCommentController">
+<div ng-repeat="blogcomment in blogcommentdata">
+<p>{{blogcomment.username}}  <span ng-show="currentUser.username==blogcomment.username"><button ng-click="deleteBlogComment(blogcomment.commentId)">Delete</button>  <button ng-click="updateComment(blogcomment.commentId)">Update</button></span></p>
+<p>{{blogcomment.blogComment}}</p>
+</div>
+</div>

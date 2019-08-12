@@ -1,0 +1,8 @@
+<div ng-controller="ForumController">
+<div ng-repeat="forum in forumdata">
+<div id="{{forum.forumId}}">
+<p>{{forum.forumName}}   <button ng-show="forum.status=='NA'" ng-click="approveForum(forum.forumId)">Approve</button> <button ng-show="forum.status=='A'" ng-click="rejectForum(forum.forumId)">Reject</button> <button ng-click="adminDeleteForum(forum.forumId)">Delete</button></p>
+<p>{{forum.forumContent}}</p>
+</div>
+</div>
+</div>

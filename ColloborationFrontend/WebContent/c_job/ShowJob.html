@@ -1,0 +1,33 @@
+<div ng-controller="JobController">
+<table border="1">
+<tr>
+<td>Job Designation</td>
+<td>Company Name</td>
+<td>CTC</td>
+<td>Job Location</td>
+<td>Last Date</td>
+<td>Skills</td>
+<td ng-show="currentUser.role=='ROLE_ADMIN'">Action</td>
+</tr>
+<div ng-repeat="job in jobdata">
+<tr>
+<td>{{job.jobDesignation}}</td>
+<td>{{job.companyName}}</td>
+<td>{{job.CTC}}</td>
+<td>{{job.jobLocation}}</td>
+<td>{{job.lastDate}}</td>
+<td>{{job.skills}}</td>
+
+</tr>
+</div>
+</table>
+<div ng-repeat="job in jobdata">
+{{job.jobDesignation}}
+{{job.companyName}}
+{{job.ctc}}
+{{job.jobLocation}}
+{{job.lastDate}}
+{{job.skills}}
+<button type="button" href="/showBlog" ng-show="currentUser.role=='ROLE_USER'"onclick="Apply job">Apply</button>
+</div>
+</div>

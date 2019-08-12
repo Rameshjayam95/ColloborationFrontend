@@ -1,0 +1,12 @@
+<div ng-controller="ForumController">
+<h2>Update forum page</h2>
+<form>
+<fieldset>
+  <legend>UpdateForum:</legend>
+forumId:<input type="text" ng-model="forum.forumId" value="{{forum.forumId}}" readonly><br>
+forumname:<input type="text" ng-model="forum.forumName" value="{{forum.forumName}}"><br>
+forumcontent:<input type="text" ng-model="forum.forumContent" value="{{forum.forumContent}}"><br>
+<button ng-click="updateForum()">Update</button>
+</fieldset>
+</form>
+</div>

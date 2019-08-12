@@ -1,0 +1,10 @@
+<div ng-controller="BlogController">
+<div ng-repeat="blog in blogdata">
+<div ng-show="blog.status=='A'">
+<p>{{blog.blogName}}    <button ng-click="incrementLikes(blog.blogId)">Like</button> {{blog.likes}}   <button ng-click="incrementDislikes(blog.blogId)">Dislike</button> {{blog.dislikes}}</p>
+
+<p>{{blog.blogContent}} <div ng-controller="BlogCommentController"> <span ng-hide="currentUser==undefined"> <form> <input type="text" ng-model="blogComment.blogComment"> <button ng-click="addComment(blog.blogId)">AddComment</button> </form> </span>  <button ng-click="showComments(blog.blogId)">Comments</button>  </div>  </p>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,8 @@
+<div ng-controller="BlogController">
+<div ng-repeat="blog in blogdata">
+<div id="{{blog.blogId}}">
+<p>{{blog.blogName}}   <button ng-show="blog.status=='NA'" ng-click="approveBlog(blog.blogId)">Approve</button> <button ng-show="blog.status=='A'" ng-click="rejectBlog(blog.blogId)">Reject</button> <button ng-click="adminDeleteBlog(blog.blogId)">Delete</button></p>
+<p>{{blog.blogContent}}</p>
+</div>
+</div>
+</div>

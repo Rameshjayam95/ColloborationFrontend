@@ -1,0 +1,8 @@
+<div ng-controller="ForumController">
+<div ng-repeat="forum in forumdata">
+<div ng-show="forum.status=='A'">
+<p>{{forum.forumName}}</p>
+<p>{{forum.forumContent}} <div ng-controller="ForumCommentController"> <span ng-hide="currentUser==undefined"> <form> <input type="text" ng-model="forumComment.forumComment"> <button ng-click="addComment(forum.forumId)">AddComment</button> </form> </span>  <button ng-click="showComments(forum.forumId)">Comments</button>  </div>  </p>
+</div>
+</div>
+</div>

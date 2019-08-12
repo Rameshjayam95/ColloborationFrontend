@@ -1,0 +1,11 @@
+<div ng-controller="BlogController">
+<h2>blogpage</h2>
+<form>
+<fieldset>
+  <legend>Add Blog:</legend>
+blogname:<input type="text" ng-model="blog.blogName"><br><br>
+blogcontent:<input type="text" ng-model="blog.blogContent"><br><br>
+<button ng-click="addBlog()">Submit</button>
+</fieldset>
+</form>
+</div>

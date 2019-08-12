@@ -1,0 +1,15 @@
+<div ng-controller="JobController">
+<h2>jobpage</h2>
+<form>
+<fieldset>
+  <legend>Job:</legend>
+jobdesignation:<input type="text" ng-model="job.jobDesignation"><br><br>
+companyname:<input type="text" ng-model="job.companyName"><br><br>
+CTC:<input type="text" ng-model="job.CTC"><br><br>
+joblocation:<input type="text" ng-model="job.jobLocation"><br><br>
+lastdate:<input type="text" ng-model="job.lastDate"><br><br>
+skills:<input type="text" ng-model="job.skills"><br><br>
+<button ng-click="addJob()">Submit</button>
+</fieldset>
+</form>
+</div>
